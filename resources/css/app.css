@@ -1,0 +1,27 @@
+/* NusaMarket — Custom CSS */
+/* Semua styling utama sudah ada di layouts/app.blade.php */
+/* File ini untuk override atau tambahan global */
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+/* Prevent layout shift saat Alpine.js load */
+[x-cloak] { display: none !important; }
+
+/* Image lazy loading blur */
+img[loading="lazy"] { transition: filter 0.3s; }
+img[loading="lazy"]:not([src]) { filter: blur(10px); }
+
+/* Focus visible */
+:focus-visible { outline: 2px solid #2E75B6; outline-offset: 2px; }
+
+/* Print */
+@media print {
+    .navbar-nusa, .cat-bar, .footer-main, .btn { display: none !important; }
+}
