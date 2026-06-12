@@ -1,5 +1,5 @@
 {{-- components/filter-sidebar.blade.php --}}
-<form method="GET" action="{{ request()->url() }}" id="filterForm">
+<form method="GET" action="{{ secure_url(request()->path()) }}" id="filterForm">
     @foreach(request()->except(['page','min_price','max_price','rating','location']) as $key => $val)
     <input type="hidden" name="{{ $key }}" value="{{ $val }}">
     @endforeach
@@ -72,7 +72,7 @@
 
     {{-- Reset --}}
     @if(request()->hasAny(['category','min_price','max_price','rating','location']))
-    <a href="{{ request()->url() }}{{ request('q') ? '?q='.request('q') : '' }}"
+    <a href="{{ secure_url(request()->path()) }}{{ request('q') ? '?q='.request('q') : '' }}"
        class="btn btn-outline-secondary btn-sm w-100">
         <i class="bi bi-x-circle me-1"></i>Reset Filter
     </a>
